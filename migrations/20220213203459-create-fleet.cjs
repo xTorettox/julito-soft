@@ -1,30 +1,15 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('ServiceItems', {
+    await queryInterface.createTable('Fleets', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      serviceId: {
-        type: Sequelize.INTEGER
-      },
-      serviceItemId: {
-        type: Sequelize.INTEGER
-      },
-      serviceItemDescription: {
+      fleet_name: {
         type: Sequelize.STRING
-      },
-      serviceItemSolution: {
-        type: Sequelize.STRING
-      },
-      serviceItemApproved: {
-        type: Sequelize.BOOLEAN
-      },
-      serviceItemSolved: {
-        type: Sequelize.BOOLEAN
       },
       createdAt: {
         allowNull: false,
@@ -37,6 +22,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('ServiceItems');
+    await queryInterface.dropTable('Fleets');
   }
 };
