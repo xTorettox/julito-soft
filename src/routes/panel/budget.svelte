@@ -1,31 +1,31 @@
 
 <script>
-	import Header from '../components/header.svelte';
+	import Header from '../../components/header.svelte';
     import { Table } from 'sveltestrap';
 
     // Tratamiento de la búsqueda
-    let orderNumberSearch, licensePlateSearch, companyNameSearch;
+    let budgetSearch, licensePlateSearch, companyNameSearch;
 </script>
 
-<title>JulitoSoft - Soft de Taller para Julito</title>
+<title>JulitoSoft - Presupuestos</title>
 <main>
 	<div class="container" style="background-color: white;">
 		<Header />
 
-        <h1>Órdenes de Trabajo Abiertas</h1>
+        <h1>Presupuestos</h1>
         <Table hover striped>
             <thead>
               <tr>
                 <th>#</th>
-                <th>Número de Orden</th>
+                <th>Número de Presupuesto</th>
                 <th>Dominio</th>
                 <th>Empresa</th>
               </tr>
               <tr>
                 <th></th>
                 <th>
-                    <label for="orderNumberInput" hidden>Filtrar por número de orden</label>
-                    <input id="orderNumberInput" type="search" bind:value={orderNumberSearch} placeholder="filtrar...">
+                    <label for="budgetNumberInput" hidden>Filtrar por número de orden</label>
+                    <input id="budgetNumberInput" type="search" bind:value={budgetSearch} placeholder="filtrar...">
                 </th>
                 <th>
                     <label for="licensePlateInput" hidden>Filtrar por número de patente</label>

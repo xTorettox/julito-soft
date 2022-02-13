@@ -31,29 +31,35 @@
 </head>
 
 <div style="font-family: 'Staatliches', serif; font-size:xx-large;">
-	<img src="logo_universal.png" alt="logo universal servicios" height="80" />
-	UNIVERSAL SERVICIOS
+	<img src="/static/logo_universal.png" alt="logo universal servicios" height="80" />
+	UNIVERSAL SERVICIOS Y LOGÍSTICA
 </div>
 <Navbar color="light" light expand="md">
-	<NavbarBrand href="/">Barrita wii</NavbarBrand>
+	<NavbarBrand>Menú Principal</NavbarBrand>
 	<NavbarToggler on:click={() => (isOpen = !isOpen)} />
 	<Collapse {isOpen} navbar expand="md" on:update={handleUpdate}>
 		<Nav class="ml-auto" navbar>
 			<NavItem>
-				<NavLink href="#components/">Components</NavLink>
+				<NavLink href="/panel/work_order">Órdenes de Trabajo</NavLink>
 			</NavItem>
 			<NavItem>
-				<NavLink href="https://github.com/bestguy/sveltestrap">GitHub</NavLink>
+				<NavLink href="/panel/budget">Presupuestos</NavLink>
 			</NavItem>
-			<Dropdown nav inNavbar>
-				<DropdownToggle nav caret>Options</DropdownToggle>
+      <NavItem>
+				<NavLink href="/panel/company">Clientes</NavLink>
+			</NavItem>
+			<NavItem>
+				<NavLink href="/panel/spare_part">Repuestos</NavLink>
+			</NavItem>
+			<!-- <Dropdown nav inNavbar>
+				<DropdownToggle nav caret>Vehículos</DropdownToggle>
 				<DropdownMenu right>
 					<DropdownItem>Option 1</DropdownItem>
 					<DropdownItem>Option 2</DropdownItem>
 					<DropdownItem divider />
 					<DropdownItem>Reset</DropdownItem>
 				</DropdownMenu>
-			</Dropdown>
+			</Dropdown> -->
 		</Nav>
 	</Collapse>
 </Navbar>

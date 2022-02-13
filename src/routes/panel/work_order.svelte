@@ -1,18 +1,18 @@
 
 <script>
-	import Header from '../components/header.svelte';
+	import Header from '../../components/header.svelte';
     import { Table } from 'sveltestrap';
 
     // Tratamiento de la búsqueda
     let orderNumberSearch, licensePlateSearch, companyNameSearch;
 </script>
 
-<title>JulitoSoft - Soft de Taller para Julito</title>
+<title>JulitoSoft - Órdenes de Trabajo</title>
 <main>
 	<div class="container" style="background-color: white;">
 		<Header />
 
-        <h1>Órdenes de Trabajo Abiertas</h1>
+        <h1>Órdenes de Trabajo</h1>
         <Table hover striped>
             <thead>
               <tr>
