@@ -45,7 +45,7 @@
 			<NavItem>
 				<NavLink href="/panel/budget">Presupuestos</NavLink>
 			</NavItem>
-      <NavItem>
+			<NavItem>
 				<NavLink href="/panel/company">Clientes</NavLink>
 			</NavItem>
 			<NavItem>
