@@ -11,6 +11,19 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      WorkOrder.belongsTo(models.Vehicle, {
+        foreignKey:'id',
+        targetKey:'id'
+      })
+      WorkOrder.hasMany(models.SpareParts, {
+        foreignKey:'id'
+      })
+      WorkOrder.hasMany(models.Jobs, {
+        foreignKey:'id'
+      })
+      WorkOrder.hasMany(models.ServiceItems, {
+        foreignKey:'id'
+      })
     }
   }
   WorkOrder.init({
@@ -24,7 +37,10 @@ module.exports = (sequelize, DataTypes) => {
     service_item_collection: DataTypes.INTEGER,
     spare_parts_collection: DataTypes.INTEGER,
     job_collection: DataTypes.INTEGER,
-    order_amount: DataTypes.FLOAT
+    order_amount: DataTypes.FLOAT,
+    order_open: DataTypes.BOOLEAN,
+    next_visit: DataTypes.STRING,
+    budget: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'WorkOrder',

@@ -11,6 +11,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      SparePart.belongsTo(models.WorkOrder, {
+        foreignKey:'id',
+        targetKey:'id'
+      })
     }
   }
   SparePart.init({

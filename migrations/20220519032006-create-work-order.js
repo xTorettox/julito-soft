@@ -30,16 +30,40 @@ module.exports = {
         type: Sequelize.STRING
       },
       service_item_collection: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model:'ServiceItem',
+          key:'id'
+        },
+        onDelete:'CASCADE',
+        onUpdate:'CASCADE'
       },
       spare_parts_collection: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model:'SparePart',
+          key:'id'
+        },
+        onDelete:'CASCADE',
+        onUpdate:'CASCADE'
       },
-      job_collection: {
-        type: Sequelize.INTEGER
+      job__collection: {
+        type: Sequelize.INTEGER,
+        references: {
+          model:'Jobs',
+          key:'id'
+        },
+        onDelete:'CASCADE',
+        onUpdate:'CASCADE'
       },
       order_amount: {
         type: Sequelize.FLOAT
+      },
+      order_open: {
+        type: Sequelize.BOOLEAN
+      },
+      next_visit: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
