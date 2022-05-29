@@ -29,33 +29,6 @@ module.exports = {
       next_service_recommendations: {
         type: Sequelize.STRING
       },
-      service_item_collection: {
-        type: Sequelize.INTEGER,
-        references: {
-          model:'ServiceItem',
-          key:'id'
-        },
-        onDelete:'CASCADE',
-        onUpdate:'CASCADE'
-      },
-      spare_parts_collection: {
-        type: Sequelize.INTEGER,
-        references: {
-          model:'SparePart',
-          key:'id'
-        },
-        onDelete:'CASCADE',
-        onUpdate:'CASCADE'
-      },
-      job__collection: {
-        type: Sequelize.INTEGER,
-        references: {
-          model:'Jobs',
-          key:'id'
-        },
-        onDelete:'CASCADE',
-        onUpdate:'CASCADE'
-      },
       order_amount: {
         type: Sequelize.FLOAT
       },
@@ -64,6 +37,15 @@ module.exports = {
       },
       next_visit: {
         type: Sequelize.STRING
+      },
+      vehicle: {
+        type: Sequelize.INTEGER,
+        references:{
+          model:'Vehicle',
+          key:'id'
+        },
+        onDelete:'CASCADE',
+        onUpdate:'CASCADE'
       },
       createdAt: {
         allowNull: false,

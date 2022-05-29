@@ -12,17 +12,19 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       CustomerContact.belongsTo(models.Customer, {
-        foreignKey: 'id',
-        targetKey: 'id'
+        foreignKey:'id',
+        targetKey:'customer'
       })
     }
   }
   CustomerContact.init({
     customer_contact_name: DataTypes.STRING,
+    customer_contact_lastname: DataTypes.STRING,
     customer_contact_mail: DataTypes.STRING,
     customer_contact_phone: DataTypes.INTEGER,
     customer_contact_area: DataTypes.STRING,
-    customer_contact_rol: DataTypes.STRING
+    customer_contact_rol: DataTypes.STRING,
+    customer: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'CustomerContact',

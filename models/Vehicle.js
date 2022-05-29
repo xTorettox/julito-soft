@@ -13,8 +13,8 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Vehicle.belongsTo(models.Fleet, {
         foreignKey:'id',
-        targetKey:'id'
-        })
+        targetKey:'fleet'
+      })
       Vehicle.hasMany(models.WorkOrder, {
         foreignKey:'id'
       })
@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
     model: DataTypes.STRING,
     year: DataTypes.INTEGER,
     kilometers: DataTypes.INTEGER,
-    work_order_collection: DataTypes.INTEGER
+    fleet: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Vehicle',

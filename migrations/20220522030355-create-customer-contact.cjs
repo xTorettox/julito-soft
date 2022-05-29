@@ -11,6 +11,9 @@ module.exports = {
       customer_contact_name: {
         type: Sequelize.STRING
       },
+      customer_contact_lastname: {
+        type: Sequelize.STRING
+      },
       customer_contact_mail: {
         type: Sequelize.STRING
       },
@@ -22,6 +25,15 @@ module.exports = {
       },
       customer_contact_rol: {
         type: Sequelize.STRING
+      },
+      customer: {
+        type: Sequelize.INTEGER,
+        references: {
+          model:'Customer',
+          key:'id'
+        },
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
       },
       createdAt: {
         allowNull: false,

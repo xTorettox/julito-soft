@@ -8,9 +8,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      service_id: {
-        type: Sequelize.INTEGER
-      },
       service_item_description: {
         type: Sequelize.STRING
       },
@@ -22,6 +19,15 @@ module.exports = {
       },
       service_item_solved: {
         type: Sequelize.BOOLEAN
+      },
+      work_order: {
+        type: Sequelize.INTEGER,
+        references:{
+          model:'WorkOrder',
+          key:'id'
+        },
+        onDelete:'CASCADE',
+        onUpdate:'CASCADE'
       },
       createdAt: {
         allowNull: false,

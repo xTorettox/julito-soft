@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       SparePart.belongsTo(models.WorkOrder, {
         foreignKey:'id',
-        targetKey:'id'
+        targetKey:'work_order'
       })
     }
   }
@@ -22,7 +22,8 @@ module.exports = (sequelize, DataTypes) => {
     part_number: DataTypes.STRING,
     part_location: DataTypes.STRING,
     part_price: DataTypes.FLOAT,
-    part_stock: DataTypes.INTEGER
+    part_stock: DataTypes.INTEGER,
+    work_order: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'SparePart',

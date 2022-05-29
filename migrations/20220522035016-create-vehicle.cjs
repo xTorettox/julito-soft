@@ -29,14 +29,14 @@ module.exports = {
       kilometers: {
         type: Sequelize.INTEGER
       },
-      work_order_collection: {
+      fleet: {
         type: Sequelize.INTEGER,
         references: {
-          model:'WorkOrder',
+          model:'Fleet',
           key:'id'
         },
-        onDelete:'CASCADE',
-        onUpdate:'CASCADE'
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
       },
       createdAt: {
         allowNull: false,

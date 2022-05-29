@@ -17,6 +17,15 @@ module.exports = {
       job_price: {
         type: Sequelize.FLOAT
       },
+      work_order: {
+        type: Sequelize.INTEGER,
+        references:{
+          model:'WorkOrder',
+          key:'id'
+        },
+        onDelete:'CASCADE',
+        onUpdate:'CASCADE'
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

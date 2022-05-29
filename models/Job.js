@@ -13,14 +13,15 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Job.belongsTo(models.WorkOrder, {
         foreignKey:'id',
-        targetKey:'id'
+        targetKey:'work_order'
       })
     }
   }
   Job.init({
     job_description: DataTypes.STRING,
     job_duration_hs: DataTypes.FLOAT,
-    job_price: DataTypes.FLOAT
+    job_price: DataTypes.FLOAT,
+    work_order: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Job',

@@ -13,16 +13,16 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       ServiceItem.belongsTo(models.WorkOrder, {
         foreignKey:'id',
-        targetKey:'id'
+        targetKey:'work_order'
       })
     }
   }
   ServiceItem.init({
-    service_id: DataTypes.INTEGER,
     service_item_description: DataTypes.STRING,
     service_item_solution: DataTypes.STRING,
     service_item_approved: DataTypes.BOOLEAN,
-    service_item_solved: DataTypes.BOOLEAN
+    service_item_solved: DataTypes.BOOLEAN,
+    work_order: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'ServiceItem',

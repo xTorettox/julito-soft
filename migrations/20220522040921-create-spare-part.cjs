@@ -23,6 +23,15 @@ module.exports = {
       part_stock: {
         type: Sequelize.INTEGER
       },
+      work_order: {
+        type: Sequelize.INTEGER,
+        references:{
+          model:'WorkOrder',
+          key:'id'
+        },
+        onDelete:'CASCADE',
+        onUpdate:'CASCADE'
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

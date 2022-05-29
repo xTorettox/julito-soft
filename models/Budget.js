@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+const { ButtonGroup } = require('sveltestrap');
 module.exports = (sequelize, DataTypes) => {
   class Budget extends Model {
     /**
@@ -11,11 +12,16 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Budget.belongsTo(models.WorkOrder, {
+        foreignKey:'id',
+        targetKey:'work_order'
+      })
     }
   }
   Budget.init({
     budget_date: DataTypes.DATE,
-    budget_expiration: DataTypes.DATE
+    budget_expiration: DataTypes.DATE,
+    work_order: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Budget',
