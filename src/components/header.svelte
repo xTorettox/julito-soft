@@ -34,6 +34,7 @@
 	<img src="/static/logo_universal.png" alt="logo universal servicios" height="80" />
 	UNIVERSAL SERVICIOS Y LOGÍSTICA
 </div>
+
 <Navbar color="light" light expand="md">
 	<NavbarBrand>Menú Principal</NavbarBrand>
 	<NavbarToggler on:click={() => (isOpen = !isOpen)} />
