@@ -25,7 +25,8 @@ module.exports = (sequelize, DataTypes) => {
     customer_cuit: DataTypes.INTEGER,
     customer_phone: DataTypes.INTEGER,
     customer_mail: DataTypes.STRING,
-    customer_address: DataTypes.STRING
+    customer_address: DataTypes.STRING,
+    customer_picture: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Customer',
