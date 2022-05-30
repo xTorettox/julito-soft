@@ -37,15 +37,15 @@
 <Navbar color="light" light expand="md">
 	<NavbarBrand>Menú Principal</NavbarBrand>
 	<NavbarToggler on:click={() => (isOpen = !isOpen)} />
-	<Collapse {isOpen} navbar expand="md" on:update={handleUpdate}>
-		<Nav class="ml-auto" navbar>
+	<Collapse {isOpen} navbar  on:update={handleUpdate} expand="md" style="transition: none">
+		<Nav navbar class="ml-auto" >
 			<NavItem>
-				<NavLink href="/panel/work_order">Órdenes de Trabajo</NavLink>
+				<NavLink href="/panel/work_order" >Órdenes de Trabajo</NavLink>
 			</NavItem>
 			<NavItem>
 				<NavLink href="/panel/budget">Presupuestos</NavLink>
 			</NavItem>
-      <NavItem>
+      		<NavItem>
 				<NavLink href="/panel/company">Empresas</NavLink>
 			</NavItem>
 			<NavItem>
