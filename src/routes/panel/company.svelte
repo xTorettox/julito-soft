@@ -1,18 +1,11 @@
 
 <script>
 	import Header from '../../components/header.svelte';
-  import {
-      Table,
-      Button
-  } from 'sveltestrap';
-
-  // Import para el modal-----------------------------------------------
-  import Modal,{getModal} from '../../components/Modal.svelte'
+  import {Table,Button} from 'sveltestrap';
+  import Modal,{getModal} from '../../components/Modal.svelte' // Import para el modal
  
   // Tratamiento de la búsqueda
   let companyNameSearch, dataOneSearch, dataTwoSearch;
-  let open = false;
-  const toggle = () => (open = !open);
 </script>
 
 <title>JulitoSoft - Empresas</title>
