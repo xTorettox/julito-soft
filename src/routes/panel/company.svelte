@@ -3,20 +3,20 @@
 	import Header from '../../components/header.svelte';
   import {
       Table,
-      Button,
-      Modal,
-      ModalBody,
-      ModalFooter,
-      ModalHeader,
-      Form,
-      FormGroup,
-      Input
+      Button
   } from 'sveltestrap';
 
-    // Tratamiento de la búsqueda
-    let companyNameSearch, dataOneSearch, dataTwoSearch;
-    let open = false;
-    const toggle = () => (open = !open);
+  // Imports y funciones para el modal-----------------------------------------------
+  import Modal,{getModal} from '../../components/Modal.svelte'
+  let selection
+  function setSelection(res){selection=res}
+  //---------------------------------------------------------------------------------
+
+
+  // Tratamiento de la búsqueda
+  let companyNameSearch, dataOneSearch, dataTwoSearch;
+  let open = false;
+  const toggle = () => (open = !open);
 </script>
 
 <title>JulitoSoft - Empresas</title>
@@ -25,38 +25,8 @@
 		<Header />
 
         <h1 style="float:left">Empresas</h1>
-        <Button color="primary" on:click={toggle} style="float:right">Nuevo Cliente</Button>
-        
-        <Modal isOpen={open} {toggle}>
-          <ModalHeader {toggle}>Alta de Cliente</ModalHeader>
-          <ModalBody> <!--acomodar foto e inputs-->
-              <img src="/static/contactPH.png" alt="logo" height="80" max-width="250"/>
-              <Form>
-                <FormGroup floating label="Nombre">
-                  <Input placeholder="Nombre" />
-                </FormGroup>
-                <FormGroup floating label="CUIT">
-                  <Input placeholder="CUIT" />
-                </FormGroup>
-              </Form> 
-              <Form>
-              <FormGroup floating label="Teléfono">
-               <Input placeholder="Teléfono" />
-              </FormGroup>
-              <FormGroup floating label="eMail">
-                <Input placeholder="eMail" />
-              </FormGroup>
-              <FormGroup floating label="Dirección">
-               <Input placeholder="Dirección" />
-              </FormGroup>
-            </Form> 
-          </ModalBody>
-          <ModalFooter>
-              <Button color="primary" on:click={toggle}>Guardar</Button>
-              <Button color="secondary" on:click={toggle}>Cancelar</Button>
-          </ModalFooter>
-        </Modal>
-      
+        <Button color="primary" on:click={()=>getModal().open()} style="float:right">Nuevo Cliente</Button>
+        <Modal></Modal>     
         <Table hover striped>
             <thead>
               <tr>
