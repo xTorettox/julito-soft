@@ -6,13 +6,9 @@
       Button
   } from 'sveltestrap';
 
-  // Imports y funciones para el modal-----------------------------------------------
+  // Import para el modal-----------------------------------------------
   import Modal,{getModal} from '../../components/Modal.svelte'
-  let selection
-  function setSelection(res){selection=res}
-  //---------------------------------------------------------------------------------
-
-
+ 
   // Tratamiento de la búsqueda
   let companyNameSearch, dataOneSearch, dataTwoSearch;
   let open = false;
