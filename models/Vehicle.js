@@ -11,19 +11,12 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Vehicle.belongsTo(models.Fleet, {
-        foreignKey:'id',
-        targetKey:'fleet'
-      })
-      Vehicle.hasMany(models.WorkOrder, {
-        foreignKey:'id'
-      })
     }
   }
   Vehicle.init({
     domain: DataTypes.STRING,
-    vin_number: DataTypes.STRING,
-    motor_number: DataTypes.STRING,
+    vinNumber: DataTypes.STRING,
+    motorNumber: DataTypes.STRING,
     brand: DataTypes.STRING,
     model: DataTypes.STRING,
     year: DataTypes.INTEGER,

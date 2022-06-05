@@ -1,24 +1,27 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Fleets', {
+    await queryInterface.createTable('ServiceItems', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      fleet_name: {
+      itemDescription: {
         type: Sequelize.STRING
       },
-      customer: {
-        type: Sequelize.INTEGER,
-        references: {
-          model:'Customer',
-          key:'id'
-        },
-        onDelete: 'CASCADE',
-        onUpdate: 'CASCADE'
+      itemSolution: {
+        type: Sequelize.STRING
+      },
+      itemApproved: {
+        type: Sequelize.BOOLEAN
+      },
+      itemSolved: {
+        type: Sequelize.BOOLEAN
+      },
+      workOrder: {
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
@@ -31,6 +34,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Fleets');
+    await queryInterface.dropTable('ServiceItems');
   }
 };

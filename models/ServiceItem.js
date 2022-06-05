@@ -11,18 +11,14 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      ServiceItem.belongsTo(models.WorkOrder, {
-        foreignKey:'id',
-        targetKey:'work_order'
-      })
     }
   }
   ServiceItem.init({
-    service_item_description: DataTypes.STRING,
-    service_item_solution: DataTypes.STRING,
-    service_item_approved: DataTypes.BOOLEAN,
-    service_item_solved: DataTypes.BOOLEAN,
-    work_order: DataTypes.INTEGER
+    itemDescription: DataTypes.STRING,
+    itemSolution: DataTypes.STRING,
+    itemApproved: DataTypes.BOOLEAN,
+    itemSolved: DataTypes.BOOLEAN,
+    workOrder: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'ServiceItem',

@@ -8,44 +8,35 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      vehicle_id: {
-        type: Sequelize.INTEGER
-      },
-      order_date: {
+      orderDate: {
         type: Sequelize.DATE
       },
-      order_km: {
+      orderKilometers: {
         type: Sequelize.INTEGER
       },
-      fuel_level: {
+      fuelLevel: {
         type: Sequelize.STRING
       },
-      pre_order_comments: {
+      preOrderComments: {
         type: Sequelize.STRING
       },
-      post_order_comments: {
+      postOrderComments: {
         type: Sequelize.STRING
       },
-      next_service_recommendations: {
+      nextServiceRecommendations: {
         type: Sequelize.STRING
       },
-      order_amount: {
+      orderAmount: {
         type: Sequelize.FLOAT
       },
-      order_open: {
+      orderOpen: {
         type: Sequelize.BOOLEAN
       },
-      next_visit: {
-        type: Sequelize.STRING
+      nextVisit: {
+        type: Sequelize.DATE
       },
       vehicle: {
-        type: Sequelize.INTEGER,
-        references:{
-          model:'Vehicle',
-          key:'id'
-        },
-        onDelete:'CASCADE',
-        onUpdate:'CASCADE'
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
