@@ -23,6 +23,9 @@ module.exports = {
       customer_address: {
         type: Sequelize.STRING
       },
+      customer_picture: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

@@ -30,7 +30,6 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   WorkOrder.init({
-    vehicle_id: DataTypes.INTEGER,
     order_date: DataTypes.DATE,
     order_km: DataTypes.INTEGER,
     fuel_level: DataTypes.STRING,
