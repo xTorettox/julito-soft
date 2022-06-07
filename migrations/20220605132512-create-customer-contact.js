@@ -1,36 +1,33 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('SpareParts', {
+    await queryInterface.createTable('CustomerContacts', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      part_description: {
+      contactName: {
         type: Sequelize.STRING
       },
-      part_number: {
+      contactLastname: {
         type: Sequelize.STRING
       },
-      part_location: {
+      contactMail: {
         type: Sequelize.STRING
       },
-      part_price: {
-        type: Sequelize.FLOAT
+      contactPhone: {
+        type: Sequelize.STRING
       },
-      part_stock: {
+      contactArea: {
+        type: Sequelize.STRING
+      },
+      contactRol: {
+        type: Sequelize.STRING
+      },
+      customer: {
         type: Sequelize.INTEGER
-      },
-      work_order: {
-        type: Sequelize.INTEGER,
-        references:{
-          model:'WorkOrder',
-          key:'id'
-        },
-        onDelete:'CASCADE',
-        onUpdate:'CASCADE'
       },
       createdAt: {
         allowNull: false,
@@ -43,6 +40,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('SpareParts');
+    await queryInterface.dropTable('CustomerContacts');
   }
 };

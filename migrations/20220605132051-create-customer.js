@@ -1,42 +1,30 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Vehicles', {
+    await queryInterface.createTable('Customers', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      domain: {
+      customerName: {
         type: Sequelize.STRING
       },
-      vin_number: {
+      customerCuit: {
         type: Sequelize.STRING
       },
-      motor_number: {
+      customerPhone: {
         type: Sequelize.STRING
       },
-      brand: {
+      customerMail: {
         type: Sequelize.STRING
       },
-      model: {
+      customerAddress: {
         type: Sequelize.STRING
       },
-      year: {
-        type: Sequelize.INTEGER
-      },
-      kilometers: {
-        type: Sequelize.INTEGER
-      },
-      fleet: {
-        type: Sequelize.INTEGER,
-        references: {
-          model:'Fleet',
-          key:'id'
-        },
-        onDelete: 'CASCADE',
-        onUpdate: 'CASCADE'
+      customerPicture: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
@@ -49,6 +37,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Vehicles');
+    await queryInterface.dropTable('Customers');
   }
 };

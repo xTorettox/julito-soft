@@ -1,20 +1,29 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('ManteinanceParameters', {
+    await queryInterface.createTable('SpareParts', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      manteinance_name: {
+      partDescription: {
         type: Sequelize.STRING
       },
-      frequency_km: {
+      partNumber: {
+        type: Sequelize.STRING
+      },
+      partLocation: {
+        type: Sequelize.STRING
+      },
+      partPrice: {
+        type: Sequelize.FLOAT
+      },
+      partStock: {
         type: Sequelize.INTEGER
       },
-      frequency_years: {
+      workOrder: {
         type: Sequelize.INTEGER
       },
       createdAt: {
@@ -28,6 +37,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('ManteinanceParameters');
+    await queryInterface.dropTable('SpareParts');
   }
 };
