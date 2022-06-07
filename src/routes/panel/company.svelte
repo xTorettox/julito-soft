@@ -5,14 +5,40 @@
   import Modal,{getModal} from '../../components/Modal.svelte' // Import para el modal
  
   // Tratamiento de la búsqueda
-  let companyNameSearch, dataOneSearch, dataTwoSearch;
+  let companyNameSearch, dataOneSearch, dataTwoSearch = '';
+ 
+
+
+  let clients = [
+  {name: "Comercial Argentina", data1: "126854", data2: "AB548BN"},
+  {name: "Quintana Wellpro", data1: "126881", data2: "PMA453"},
+  {name: "Pampa Energía", data1: "126883", data2: "OST444"},
+  {name: "MS Electromedicina", data1: "31439321", data2: "2995774679"},
+  ];
+
+  let clientsf = clients;
+  
+  $: {      //SEGUIR VIENDO ESTOS FILTROS
+
+    if (companyNameSearch){
+        clientsf = clients.filter(client => {return client.name.toLowerCase().includes(companyNameSearch.toLowerCase());})}
+
+    if (dataOneSearch) {
+        clientsf = clients.filter(client => {return client.data1.toLowerCase().includes(dataOneSearch.toLowerCase());})}
+
+    if (dataTwoSearch) {
+        clientsf = clients.filter(client => {return client.data2.toLowerCase().includes(dataTwoSearch.toLowerCase());})}
+      
+  }
+
+
+
 </script>
 
 <title>JulitoSoft - Empresas</title>
 <main>
 	<div class="container" style="background-color: white;">
 		<Header />
-
         <h1 style="float:left">Empresas</h1>
         <Button color="primary" on:click={()=>getModal().open()} style="float:right">Nuevo Cliente</Button>
         <Modal></Modal>     
@@ -40,26 +66,16 @@
                 </th>   
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Comercial Argentina</td>
-                <td>126854</td>
-                <td>AB548BN</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Quintana Wellpro</td>
-                <td>126881</td>
-                <td>PMA453</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Pampa Energía</td>
-                <td>126883</td>
-                <td>OST444</td>
-              </tr>
-            </tbody>
+              <tbody>
+                  {#each clientsf as cliente,index} 
+                  <tr>
+                  <th scope="row">{index+1}</th>
+                  <td>{cliente.name}</td>
+                  <td>{cliente.data1}</td>
+                  <td>{cliente.data2}</td>
+                  </tr>
+                  {/each}
+              </tbody>
           </Table>
 	</div>
 </main>
