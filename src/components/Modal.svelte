@@ -61,9 +61,6 @@ onDestroy(()=>{
 	
 </script>
 
-<svelte:head>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
-</svelte:head>
 
 <div id="topModal" class:visible bind:this={topDiv} on:click={()=>close(0)}>
 	<div id='modal' on:click|stopPropagation={()=>{}}>

@@ -21,6 +21,9 @@
   },
   "type": "module",
   "dependencies": {
+    "datatables.net": "^1.12.1",
+    "datatables.net-dt": "^1.12.1",
+    "jquery": "^3.6.0",
     "mysql2": "^2.3.3",
     "sequelize": "^6.16.0",
     "sequelize-cli": "^6.4.1",

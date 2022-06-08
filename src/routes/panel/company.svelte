@@ -1,36 +1,57 @@
+<head> 
+  <script
+ 				 src="https://code.jquery.com/jquery-3.6.0.js"
+  				integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  				crossorigin="anonymous">
+			</script>
+</head>
 
 <script>
 	import Header from '../../components/header.svelte';
   import {Table,Button} from 'sveltestrap';
   import Modal,{getModal} from '../../components/Modal.svelte' // Import para el modal
- 
-  // Tratamiento de la búsqueda
-  let companyNameSearch, dataOneSearch, dataTwoSearch = '';
- 
-
-
+  import 'jquery'
+  
+  // Array que contiene los clientes. La idea es cargarlo desde la base.
   let clients = [
   {name: "Comercial Argentina", data1: "126854", data2: "AB548BN"},
   {name: "Quintana Wellpro", data1: "126881", data2: "PMA453"},
   {name: "Pampa Energía", data1: "126883", data2: "OST444"},
   {name: "MS Electromedicina", data1: "31439321", data2: "2995774679"},
   ];
-
-  let clientsf = clients;
   
-  $: {      //SEGUIR VIENDO ESTOS FILTROS
+  //Uso de Jquery para datatable filtrable.
+  const jq = window.$;	
 
-    if (companyNameSearch){
-        clientsf = clients.filter(client => {return client.name.toLowerCase().includes(companyNameSearch.toLowerCase());})}
+  jq(document).ready(function() {
+    // Añade un buscador a cada columna
+    jq('#clienTable thead th').each( function (i) {
+        var title = jq('#clienTable thead th').eq( jq(this).index() ).text();
+        jq(this).html( '<input type="text" style="width:100%;" placeholder="'+title+'" data-index="'+i+'" />' );
+    } );
+  
+    // DataTable
+    var table = jq('#clienTable').DataTable( {
+        scrollY:        "500px",
+        scrollX:        true,
+        scrollCollapse: true,
+        paging:         false,
+        fixedColumns:   true,
+        "ordering": false,
+        "columnDefs": [
+        { "width": "20%", "targets": 0 }],
 
-    if (dataOneSearch) {
-        clientsf = clients.filter(client => {return client.data1.toLowerCase().includes(dataOneSearch.toLowerCase());})}
 
-    if (dataTwoSearch) {
-        clientsf = clients.filter(client => {return client.data2.toLowerCase().includes(dataTwoSearch.toLowerCase());})}
-      
-  }
-
+    } );
+ 
+    // Filter event handler
+    jq( table.table().container() ).on( 'keyup', 'thead input', function () {
+        table
+            .column( jq(this).data('index') )
+            .search( this.value )
+            .draw();
+    } );
+} );
 
 
 </script>
@@ -42,40 +63,26 @@
         <h1 style="float:left">Empresas</h1>
         <Button color="primary" on:click={()=>getModal().open()} style="float:right">Nuevo Cliente</Button>
         <Modal></Modal>     
-        <Table hover striped>
+        <Table id="clienTable" hover striped>
             <thead>
               <tr>
-                <th>#</th>
-                <th>Empresa</th>
-                <th>Datos 2</th>
-                <th>Datos 2</th>
-              </tr>
-              <tr>
-                <th></th>
-                <th>
-                    <label for="companyNameInput" hidden>Filtrar por nombre de empresa</label>
-                    <input id="companyNameInput" type="search" bind:value={companyNameSearch} placeholder="filtrar...">
-                </th>
-                <th>
-                    <label for="datOneInput" hidden>Filtrar por dato 1</label>
-                    <input id="dataOneInput" type="search" bind:value={dataOneSearch} placeholder="filtrar...">
-                </th>
-                <th>
-                    <label for="dataTwoInput" hidden>Filtrar por dato 2</label>
-                    <input id="dataTwoInput" type="search" bind:value={dataTwoSearch} placeholder="filtrar...">
-                </th>   
+                <th class="titles">#</th>
+                <th class="titles">Empresa</th>
+                <th class="titles">Datos 1</th>
+                <th class="titles">Datos 2</th>
               </tr>
             </thead>
               <tbody>
-                  {#each clientsf as cliente,index} 
+                  {#each clients as cliente,index} 
                   <tr>
-                  <th scope="row">{index+1}</th>
-                  <td>{cliente.name}</td>
-                  <td>{cliente.data1}</td>
-                  <td>{cliente.data2}</td>
+                    <th scope="row">{index+1}</th>
+                    <td>{cliente.name}</td>
+                    <td>{cliente.data1}</td>
+                    <td>{cliente.data2}</td>
                   </tr>
                   {/each}
               </tbody>
+              
           </Table>
 	</div>
 </main>
@@ -84,7 +91,11 @@
 	main {
 		background-color: lightsteelblue;
 	}
-    .table-hover tbody tr:hover td {
+  .table-hover tbody tr:hover td {
     background-color: lightsteelblue;
-}
+  }
+  .titles{
+    align-items: center;
+    justify-content: center;
+  }
 </style>
