@@ -10,10 +10,22 @@
 	import Header from '../../components/header.svelte';
   import {Table,Button} from 'sveltestrap';
   import Modal,{getModal} from '../../components/Modal.svelte' // Import para el modal
-  import 'jquery'
+  
   
   // Array que contiene los clientes. La idea es cargarlo desde la base.
   let clients = [
+  {name: "Comercial Argentina", data1: "126854", data2: "AB548BN"},
+  {name: "Quintana Wellpro", data1: "126881", data2: "PMA453"},
+  {name: "Pampa Energía", data1: "126883", data2: "OST444"},
+  {name: "MS Electromedicina", data1: "31439321", data2: "2995774679"},
+  {name: "Comercial Argentina", data1: "126854", data2: "AB548BN"},
+  {name: "Quintana Wellpro", data1: "126881", data2: "PMA453"},
+  {name: "Pampa Energía", data1: "126883", data2: "OST444"},
+  {name: "MS Electromedicina", data1: "31439321", data2: "2995774679"},
+  {name: "Comercial Argentina", data1: "126854", data2: "AB548BN"},
+  {name: "Quintana Wellpro", data1: "126881", data2: "PMA453"},
+  {name: "Pampa Energía", data1: "126883", data2: "OST444"},
+  {name: "MS Electromedicina", data1: "31439321", data2: "2995774679"},
   {name: "Comercial Argentina", data1: "126854", data2: "AB548BN"},
   {name: "Quintana Wellpro", data1: "126881", data2: "PMA453"},
   {name: "Pampa Energía", data1: "126883", data2: "OST444"},
@@ -30,16 +42,34 @@
         jq(this).html( '<input type="text" style="width:100%;" placeholder="'+title+'" data-index="'+i+'" />' );
     } );
   
-    // DataTable
-    var table = jq('#clienTable').DataTable( {
+    // DataTable referencia en: https://datatables.net/reference/
+    var table = jq('#clienTable').DataTable( { 
         scrollY:        "500px",
         scrollX:        true,
         scrollCollapse: true,
-        paging:         false,
+        paging:         true,
         fixedColumns:   true,
+        "dom": 'lrtip',
+
         "ordering": false,
         "columnDefs": [
         { "width": "20%", "targets": 0 }],
+
+        language: {
+          "lengthMenu": 'Mostrar <select>'+
+          '<option value="10">10</option>'+
+          '<option value="20">20</option>'+
+          '<option value="30">30</option>'+
+          '<option value="50">50</option>'+
+          '<option value="100">100</option>'+
+          '<option value="-1">todos los </option>'+
+          '</select> registros',
+          "paginate": {"next": "Siguiente","previous": "Anterior"},
+          "infoFiltered": " - filtrado de _MAX_ registros",
+          "info": "Mostrando _START_ a _END_ de _TOTAL_ registros",
+          "infoEmpty": "No hay registros que mostrar",
+          "zeroRecords": "No hay registros que coincidan con la búsqueda"
+        },
 
 
     } );
@@ -50,8 +80,7 @@
             .column( jq(this).data('index') )
             .search( this.value )
             .draw();
-    } );
-} );
+    } );} );
 
 
 </script>
