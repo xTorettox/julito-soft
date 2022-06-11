@@ -23,7 +23,7 @@
 	
 </script>
 
-<head>
+<svelte:head>
 	<!-- importación de Bootstrap para trabajar con Sveltestrap -->
 	<link rel="stylesheet"
 		href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
@@ -36,7 +36,7 @@
   	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
 
 
-</head>
+</svelte:head>
 
 <div style="font-family: 'Staatliches', serif; font-size:xx-large;">
 	<img src="/static/logo_universal.png" alt="logo universal servicios" height="80" />
