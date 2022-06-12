@@ -1,10 +1,3 @@
-<svelte:head> 
-  <script
- 				 src="https://code.jquery.com/jquery-3.6.0.js"
-  				integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-  				crossorigin="anonymous">
-	</script>
-</svelte:head>
 
 <script>
 	import Header from '../../components/header.svelte';
@@ -53,7 +46,7 @@
 
         "ordering": false,
         "columnDefs": [
-        { "width": "20%", "targets": 0 }],
+        { "width": "20%", "targets": 0}],
 
         language: {
           "lengthMenu": 'Mostrar <select>'+
@@ -90,9 +83,9 @@
 	<div class="container" style="background-color: white;">
 		<Header />
         <h1 style="float:left">Empresas</h1>
-        <Button color="primary" on:click={()=>getModal().open()} style="float:right">Nuevo Cliente</Button>
+        <Button color="secondary" on:click={()=>getModal().open()} style="float:right">Nuevo Cliente</Button>
         <Modal></Modal>     
-        <Table id="clienTable" hover striped>
+        <Table id="clienTable" hover striped style="width:100%">
             <thead>
               <tr>
                 <th class="titles">#</th>
