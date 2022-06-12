@@ -4,25 +4,24 @@
   import {Table,Button} from 'sveltestrap';
   import Modal,{getModal} from '../../components/Modal.svelte' // Import para el modal
   
-  
+  /* Modelo de Cliente
+    Customer.init({
+    customerName: DataTypes.STRING,
+    customerCuit: DataTypes.STRING,
+    customerPhone: DataTypes.STRING,
+    customerMail: DataTypes.STRING,
+    customerAddress: DataTypes.STRING,
+    customerPicture: DataTypes.STRING
+  } 
+  */
+
+
   // Array que contiene los clientes. La idea es cargarlo desde la base.
   let clients = [
-  {name: "Comercial Argentina", data1: "126854", data2: "AB548BN"},
-  {name: "Quintana Wellpro", data1: "126881", data2: "PMA453"},
-  {name: "Pampa Energía", data1: "126883", data2: "OST444"},
-  {name: "MS Electromedicina", data1: "31439321", data2: "2995774679"},
-  {name: "Comercial Argentina", data1: "126854", data2: "AB548BN"},
-  {name: "Quintana Wellpro", data1: "126881", data2: "PMA453"},
-  {name: "Pampa Energía", data1: "126883", data2: "OST444"},
-  {name: "MS Electromedicina", data1: "31439321", data2: "2995774679"},
-  {name: "Comercial Argentina", data1: "126854", data2: "AB548BN"},
-  {name: "Quintana Wellpro", data1: "126881", data2: "PMA453"},
-  {name: "Pampa Energía", data1: "126883", data2: "OST444"},
-  {name: "MS Electromedicina", data1: "31439321", data2: "2995774679"},
-  {name: "Comercial Argentina", data1: "126854", data2: "AB548BN"},
-  {name: "Quintana Wellpro", data1: "126881", data2: "PMA453"},
-  {name: "Pampa Energía", data1: "126883", data2: "OST444"},
-  {name: "MS Electromedicina", data1: "31439321", data2: "2995774679"},
+  {customerName: "Comercial Argentina", customerCuit: "126854", customerPhone: "AB548BN",customerMail: "mail@ejemplo.com",customerAddress:"Somewhere 123456"},
+  {customerName: "Quintana Wellpro", customerCuit: "126881", customerPhone: "PMA453",customerMail: "user@dommino.com",customerAddress:"Calle 1 56"},
+  {customerName: "Pampa Energía", customerCuit: "126883", customerPhone: "OST444",customerMail: "cuenta@casilla.com",customerAddress:"Las Lilas 1462"},
+  {customerName: "MS Electromedicina", customerCuit: "20314393210", customerPhone: "2995774679",customerMail: "contacto@mselectromedicina.com",customerAddress:"Las gaviotas 83"},
   ];
   
   //Uso de Jquery para datatable filtrable.
@@ -42,11 +41,12 @@
         scrollCollapse: true,
         paging:         true,
         fixedColumns:   true,
+        responsive: true,
         "dom": 'lrtip',
 
         "ordering": false,
         "columnDefs": [
-        { "width": "20%", "targets": 0}],
+        { "width": "3%", "targets": 0}],
 
         language: {
           "lengthMenu": 'Mostrar <select>'+
@@ -90,17 +90,21 @@
               <tr>
                 <th class="titles">#</th>
                 <th class="titles">Empresa</th>
-                <th class="titles">Datos 1</th>
-                <th class="titles">Datos 2</th>
+                <th class="titles">Cuit</th>
+                <th class="titles">Teléfono</th>
+                <th class="titles">Mail</th>
+                <th class="titles">Dirección</th>
               </tr>
             </thead>
               <tbody>
                   {#each clients as cliente,index} 
                   <tr>
                     <th scope="row">{index+1}</th>
-                    <td>{cliente.name}</td>
-                    <td>{cliente.data1}</td>
-                    <td>{cliente.data2}</td>
+                    <td>{cliente.customerName}</td>
+                    <td>{cliente.customerCuit}</td>
+                    <td>{cliente.customerPhone}</td>
+                    <td>{cliente.customerMail}</td>
+                    <td>{cliente.customerAddress}</td>
                   </tr>
                   {/each}
               </tbody>
@@ -120,4 +124,5 @@
     align-items: center;
     justify-content: center;
   }
+  
 </style>
