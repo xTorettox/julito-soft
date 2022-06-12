@@ -1,3 +1,25 @@
+<svelte:head>
+
+	<!--Importación de Jquery-->
+	<script
+		src="https://code.jquery.com/jquery-3.6.0.js"
+		integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+		crossorigin="anonymous">
+	</script>
+
+	<!-- importación de Bootstrap para trabajar con Sveltestrap -->
+	<link rel="stylesheet"
+		href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+	/>
+	<!-- importación de Google Fonts - Staatliches -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Staatliches" />
+
+	<!--Import de Datatables-->
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+  	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+
+</svelte:head>
+
 <script lang="ts">
 	import {
 		Collapse,
@@ -18,25 +40,8 @@
 	function handleUpdate(event) {
 		isOpen = event.detail.isOpen;
 	}
-
-	
 	
 </script>
-
-<svelte:head>
-	<!-- importación de Bootstrap para trabajar con Sveltestrap -->
-	<link rel="stylesheet"
-		href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
-	/>
-	<!-- importación de Google Fonts - Staatliches -->
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Staatliches" />
-
-	<!--Import de Datatables-->
-	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
-  	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
-
-
-</svelte:head>
 
 <div style="font-family: 'Staatliches', serif; font-size:xx-large;">
 	<img src="/static/logo_universal.png" alt="logo universal servicios" height="80" />
