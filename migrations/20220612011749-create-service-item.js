@@ -1,30 +1,27 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Customers', {
+    await queryInterface.createTable('ServiceItems', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      customerName: {
+      service_item_description: {
         type: Sequelize.STRING
       },
-      customerCuit: {
+      service_item_solution: {
         type: Sequelize.STRING
       },
-      customerPhone: {
-        type: Sequelize.STRING
+      service_item_approved: {
+        type: Sequelize.BOOLEAN
       },
-      customerMail: {
-        type: Sequelize.STRING
+      service_item_solved: {
+        type: Sequelize.BOOLEAN
       },
-      customerAddress: {
-        type: Sequelize.STRING
-      },
-      customerPicture: {
-        type: Sequelize.STRING
+      work_order: {
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
@@ -37,6 +34,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Customers');
+    await queryInterface.dropTable('ServiceItems');
   }
 };

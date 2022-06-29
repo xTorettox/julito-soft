@@ -14,9 +14,9 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Budget.init({
-    budgetDate: DataTypes.DATE,
-    budgetExpiration: DataTypes.DATE,
-    workOrder: DataTypes.INTEGER
+    budget_date: DataTypes.DATE,
+    budget_expiration: DataTypes.DATE,
+    work_order: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Budget',

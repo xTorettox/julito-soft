@@ -14,11 +14,11 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   ServiceItem.init({
-    itemDescription: DataTypes.STRING,
-    itemSolution: DataTypes.STRING,
-    itemApproved: DataTypes.BOOLEAN,
-    itemSolved: DataTypes.BOOLEAN,
-    workOrder: DataTypes.INTEGER
+    service_item_description: DataTypes.STRING,
+    service_item_solution: DataTypes.STRING,
+    service_item_approved: DataTypes.BOOLEAN,
+    service_item_solved: DataTypes.BOOLEAN,
+    work_order: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'ServiceItem',

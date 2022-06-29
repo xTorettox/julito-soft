@@ -11,10 +11,16 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Fleet.belongsTo(models.Customer, {
+        sourceKey: 'customer'
+      })
+      Fleet.hasMany(models.Vehicle, {
+        foreignKey: 'fleet'
+      })
     }
   }
   Fleet.init({
-    fleetName: DataTypes.STRING,
+    fleet_name: DataTypes.STRING,
     customer: DataTypes.INTEGER
   }, {
     sequelize,

@@ -11,15 +11,18 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      CustomerContact.belongsTo(models.Customer, {
+        sourceKey: 'customer'
+      })
     }
   }
   CustomerContact.init({
-    contactName: DataTypes.STRING,
-    contactLastname: DataTypes.STRING,
-    contactMail: DataTypes.STRING,
-    contactPhone: DataTypes.STRING,
-    contactArea: DataTypes.STRING,
-    contactRol: DataTypes.STRING,
+    customer_contact_name: DataTypes.STRING,
+    customer_contact_lastname: DataTypes.STRING,
+    customer_contact_mail: DataTypes.STRING,
+    customer_contact_phone: DataTypes.INTEGER,
+    customer_contact_area: DataTypes.STRING,
+    customer_contact_rol: DataTypes.STRING,
     customer: DataTypes.INTEGER
   }, {
     sequelize,
